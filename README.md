@@ -15,7 +15,7 @@
 <h2> Problem Definition </h2>
 <p>
   Hand shape identification is an important problem to tackle in the field of computer vision. Progress on solving such a problem
-  aids in bridging the  accessiblity gap of the information age. More sophisticated models using hand shape and gesture recognition
+  aids in bridging the  accessibility gap of the information age. More sophisticated models using hand shape and gesture recognition
   can be used to classify and translate sign language, the model developed here is limited by comparison. <br>
   The program was developed under the assumption that the user would need classified five distinct hand shapes: fist, fingers extended, peace sign (or two),
   thumbs up, and an L-shape. This program was also built under the assumption that the user has adequate light and a background
@@ -32,13 +32,13 @@
   The frame of the video is mirrored for clarity before an outline of the hand is made. Using the dimensions of the outline, the program
   creates a bounding ellipse and finds the centerpoint, as well as the major and minor axes. A convex hull is also drawn around the detected
   hand in order to analyze the hand's solidity (or how much of the convex hull is filled by the hand). The circularity and solidity of the
-  hand is compared to values aligning with the five earlier mentioned hand shapes. The shape with the highest correlation is found and we
+  hand are compared to values aligning with the five earlier mentioned hand shapes. The shape with the highest correlation is found and we
   print the detected shape to the screen.
 </p>
 
 <p>
   The detect_hand() method analyzes every pixel of the frame and attempts to find those of high probability of being skin. After creating
-  the binary image, a contour is drawn around the shapes within the range of skintone color values specified. The largest of these contours
+  the binary image, a contour is drawn around the shapes within the range of skin tone color values specified. The largest of these contours
   is passed to the draw_hand() function which calculates the circularity, direction, and solidity of the outline. Before drawing the outline, convex hull,
   bounding rectangle, center point, and label onto the screen, it calls detect_gesture() to compare the contour values with the corresponding five classes of hand shapes.
   The shape which the contour was most aligned with is returned as a string for the hand's label.
@@ -115,7 +115,7 @@ Your browser does not support the video tag.
   drop. If the face and hand are different contours, the hand still needs to be in the foreground to ensure that it is the largest shape on screen. The quick way of
   addressing this is to work under the assumption that the user's hand will be the only part of them on screen.<br>
   Given the assumptions stated above, I believe the model to be successful: the model tracks and reacts to the user's change in hand shape quickly and with a competitive
-  accuracy. In my expirements I expected to find that the peace sign and L-shape would prove itself to be the least accurate estimation since their circularity and direction is similar
+  accuracy. In my experiments I expected to find that the peace sign and L-shape would prove itself to be the least accurate estimation since their circularity and direction is similar
   to that of each other. I was proven correct through testing, but did not expect that both would estimate a gesture of a splayed hand instead of each other on their negative estimations.
   I also anticipated skin recognition to be somewhat unpredictable given my complexion. Unfortunately I was proven right since I am both very pale and have a light directly above me 
   at my workstation: the highlights of my hand weren't being included in the contour at the same frequency as the rest of my hand.<br>
